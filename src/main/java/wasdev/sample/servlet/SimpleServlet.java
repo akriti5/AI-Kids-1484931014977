@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ibm.watson.developer_cloud.natural_language_classifier.v1.NaturalLanguageClassifier;
+import com.ibm.watson.developer_cloud.natural_language_classifier.v1.model.Classification;
+
 /**
  * Servlet implementation class SimpleServlet
  */
@@ -22,6 +25,12 @@ public class SimpleServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
         response.getWriter().print("Hello World!");
+        
+        NaturalLanguageClassifier service = new NaturalLanguageClassifier();
+        service.setUsernameAndPassword("3473e18e-53f7-4bd0-85be-b706e1a1f7a7", "xUmrc2iYQLrR");
+
+        Classification classification = service.classify("ff1b44x158-nlc-5055", "bulldog").execute();
+        System.out.println(classification);
     }
 
 }
