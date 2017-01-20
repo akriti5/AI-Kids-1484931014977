@@ -24,7 +24,7 @@ public class SimpleServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
-        response.getWriter().print("Hello World!\t");
+        response.getWriter().print("HelloAk World!\t");
         
         NaturalLanguageClassifier service = new NaturalLanguageClassifier();
         service.setUsernameAndPassword("3473e18e-53f7-4bd0-85be-b706e1a1f7a7", "xUmrc2iYQLrR");
