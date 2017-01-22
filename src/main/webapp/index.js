@@ -8,7 +8,7 @@ function addItem(){
 	
 xhrGet("SimpleServlet"+name, function(responseText){
 	// add to document
-	alert(responseText);
+	//alert(responseText);
 	//document.body.style.background = 'url(images/spider.jpg) '
 	
 	document.body.style.background = 'url(images/'+responseText+'.jpg) '

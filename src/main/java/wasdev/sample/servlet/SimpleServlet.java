@@ -49,6 +49,7 @@ public class SimpleServlet extends HttpServlet {
         	imgCls="spider";
         else
         	imgCls="elsa";
+        
         response.getWriter().print(imgCls);
         
     }
