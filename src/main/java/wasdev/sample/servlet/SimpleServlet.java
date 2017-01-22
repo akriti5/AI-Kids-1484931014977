@@ -41,7 +41,7 @@ public class SimpleServlet extends HttpServlet {
         
               
        
-        service.setUsernameAndPassword("3473e18e-53f7-4bd0-85be-b706e1a1f7a7", "xUmrc2iYQLrR");
+        service.setUsernameAndPassword("e6f169f2-a91a-4744-bf09-4705c00bcdc4", "YA5EZAAXH65s");
 
         Classification classification = service.classify("ff18c7x157-nlc-5270", name).execute();
         response.getWriter().print(classification.getTopClass());
