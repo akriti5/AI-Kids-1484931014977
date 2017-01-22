@@ -1,15 +1,29 @@
 // index.js
 
+
 // request message on server
 //Calls SimpleServlet to get the "Hello World" message
-xhrGet("SimpleServlet", function(responseText){
+function addItem(){
+	var name='?name='+document.getElementById('name').value;
+	
+xhrGet("SimpleServlet"+name, function(responseText){
 	// add to document
-	var mytitle = document.getElementById('message');
-	mytitle.innerHTML = responseText;
+	alert(responseText);
+	document.body.style.background = 'url(images/spider.jpg) '
+	
+	//document.body.style.background = 'url(images/'+responseText+'.jpg) '
+	document.getElementById('div1').style.visibility = 'hidden';  
+	document.getElementById('div1').style.display = 'none';      
+	
+	//var mytitle = document.getElementById('age');
+	//mytitle.value = responseText;
 
 }, function(err){
 	console.log(err);
 });
+
+}
+
 
 //utilities
 function createXHR(){
@@ -27,9 +41,11 @@ function createXHR(){
 	return null;
 }
 function xhrGet(url, callback, errback){
+	
 	var xhr = new createXHR();
 	xhr.open("GET", url, true);
 	xhr.onreadystatechange = function(){
+		//alert(xhr.readyState)
 		if(xhr.readyState == 4){
 			if(xhr.status == 200){
 				callback(xhr.responseText);

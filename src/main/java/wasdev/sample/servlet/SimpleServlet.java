@@ -3,6 +3,7 @@ package wasdev.sample.servlet;
 import java.io.File;
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,16 +33,19 @@ public class SimpleServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html");
-        response.getWriter().print("HelloAk World!\t");
         
+    	String name = request.getParameter("name");
+    	System.out.println(name);
+    	response.setContentType("text/html");
+        //response.getWriter().print(name);
+        
+              
        
         service.setUsernameAndPassword("3473e18e-53f7-4bd0-85be-b706e1a1f7a7", "xUmrc2iYQLrR");
 
-        Classification classification = service.classify("ff1b44x158-nlc-5055", "bulldog").execute();
-        response.getWriter().print(classification.getText());
-        System.out.println("Akriti"+classification.getText());
-        //classification
+        Classification classification = service.classify("ff18c7x157-nlc-5270", name).execute();
+        response.getWriter().print(classification.getTopClass());
+        
     }
 
 }
