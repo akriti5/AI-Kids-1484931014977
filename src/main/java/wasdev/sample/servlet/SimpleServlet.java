@@ -35,16 +35,21 @@ public class SimpleServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
     	String name = request.getParameter("name");
+    	String imgCls="";
     	System.out.println(name);
     	response.setContentType("text/html");
-        //response.getWriter().print(name);
+       
         
               
        
         service.setUsernameAndPassword("e6f169f2-a91a-4744-bf09-4705c00bcdc4", "YA5EZAAXH65s");
 
         Classification classification = service.classify("ff18c7x157-nlc-5270", name).execute();
-        response.getWriter().print(classification.getTopClass());
+        if(classification.getTopClass().equalsIgnoreCase("Boy"))
+        	imgCls="spider";
+        else
+        	imgCls="elsa";
+        response.getWriter().print(imgCls);
         
     }
 
