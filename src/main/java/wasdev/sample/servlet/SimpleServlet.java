@@ -44,7 +44,7 @@ public class SimpleServlet extends HttpServlet {
        
         service.setUsernameAndPassword("e6f169f2-a91a-4744-bf09-4705c00bcdc4", "YA5EZAAXH65s");
 
-        Classification classification = service.classify("ff1c34x160-nlc-5676", name).execute();
+        Classification classification = service.classify("cedf17x168-nlc-84", name).execute();
         if(classification.getTopClass().equalsIgnoreCase("Boy"))
         	imgCls="spider";
         else
