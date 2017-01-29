@@ -15,6 +15,9 @@ import org.apache.commons.io.FileUtils;
 import com.ibm.watson.developer_cloud.natural_language_classifier.v1.NaturalLanguageClassifier;
 import com.ibm.watson.developer_cloud.natural_language_classifier.v1.model.Classification;
 import com.ibm.watson.developer_cloud.util.CredentialUtils;
+import com.ibm.watson.developer_cloud.visual_recognition.v3.VisualRecognition;
+import com.ibm.watson.developer_cloud.visual_recognition.v3.model.ClassifyImagesOptions;
+import com.ibm.watson.developer_cloud.visual_recognition.v3.model.VisualClassification;
 
 /**
  * Servlet implementation class SimpleServlet
@@ -51,6 +54,8 @@ public class SimpleServlet extends HttpServlet {
         	imgCls="elsa";
         
         response.getWriter().print(imgCls);
+        
+       
         
     }
 
