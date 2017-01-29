@@ -49,7 +49,7 @@ public class SimpleServlet extends HttpServlet {
 
         Classification classification = service.classify("cede31x166-nlc-79", name).execute();
         if(classification.getTopClass().equalsIgnoreCase("Boy"))
-        	imgCls="spider";
+        	imgCls="team";
         else
         	imgCls="elsa";
         
