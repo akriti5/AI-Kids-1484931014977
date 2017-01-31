@@ -51,7 +51,7 @@ public class SimpleServlet extends HttpServlet {
         if(classification.getTopClass().equalsIgnoreCase("Boy"))
         	imgCls="team";
         else
-        	imgCls="elsa";
+        	imgCls="princess";
         
         response.getWriter().print(imgCls);
         

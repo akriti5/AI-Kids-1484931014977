@@ -113,12 +113,12 @@ document.getElementById("canvasimg").src = dataURL;
 document.getElementById("canvasimg").style.display = "inline";
 }
 
-function download(){
+function func(){
+	
+	document.getElementById("btn").download="circle.png";
 	var dt=c.toDataURL();
 	this.href=dt;
 }
-
-document.getElementById("btn").addEventListener("click",download,false);
 
 function findxy(res, e) {
 if (res == 'down') {
