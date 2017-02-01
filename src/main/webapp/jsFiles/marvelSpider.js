@@ -117,12 +117,12 @@ document.getElementById("canvasimg").style.display = "inline";
 
 function func(){
 	
-	document.getElementById("btn").download="circle.png";
-	canvasImg=document.getElementById("btn").download+Math.floor((Math.random() * 10) + 1);
-	alert(canvasImg);
+	canvasImg="circle"+Math.floor((Math.random() * 10) + 1)+".png";
+	document.getElementById("btn").download=canvasImg;
+	alert("inside func"+document.getElementById("btn").download);
 	var dt=c.toDataURL();
 	this.href=dt;
-	servercall();
+	//servercall();
 }
 
 function findxy(res, e) {
@@ -166,7 +166,7 @@ document.getElementById("btn").addEventListener("click",download,false);
 ///ajax request
 
 function servercall(){
-	
+	alert('inside servercall')
 	var name='?name='+canvasImg;
 	alert('name');
 	xhrGet("VisualReg"+name, function(responseText){		
