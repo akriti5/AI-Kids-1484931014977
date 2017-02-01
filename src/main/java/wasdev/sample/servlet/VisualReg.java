@@ -58,7 +58,7 @@ public class VisualReg extends HttpServlet {
         //File directory = new File("C://Users//akriti//Downloads//"+name);
 
         System.out.println("Classify using the shapeRecog classifier");
-        ClassifyImagesOptions options = new ClassifyImagesOptions.Builder().images(new File ("img/circle.png"))
+        ClassifyImagesOptions options = new ClassifyImagesOptions.Builder().images(new File ("/img/circle.png"))
             .classifierIds("circle").build();
         VisualClassification result = service.classify(options).execute();
         System.out.println(result);
