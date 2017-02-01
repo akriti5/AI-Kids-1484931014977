@@ -168,7 +168,7 @@ document.getElementById("btn").addEventListener("click",download,false);
 function servercall(){
 	alert('inside servercall')
 	var name='?name='+canvasImg;
-	alert('name');
+	alert(name);
 	xhrGet("VisualReg"+name, function(responseText){		
 	alert('responseText');
 	
