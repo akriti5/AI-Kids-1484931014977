@@ -1,7 +1,10 @@
 package wasdev.sample.servlet;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
+import com.ibm.watson.developer_cloud.http.ServiceCall;
 import com.ibm.watson.developer_cloud.visual_recognition.v3.VisualRecognition;
 import com.ibm.watson.developer_cloud.visual_recognition.v3.model.ClassifierOptions;
 import com.ibm.watson.developer_cloud.visual_recognition.v3.model.ClassifyImagesOptions;
@@ -14,6 +17,7 @@ public class VSRecognition {
 		
 		 VisualRecognition service = new VisualRecognition(VisualRecognition.VERSION_DATE_2016_05_20);
 	        service.setApiKey("9e2192f009e24752d514a16d5e1152fe54417f65");
+	       
 
 	       /* ClassifierOptions classifierOptions = new ClassifierOptions.Builder()
 	        .classifierName("Shapes")
@@ -31,14 +35,16 @@ public class VSRecognition {
 
 	    VisualClassification result = service.classify(classifyOptions).execute();
 	    System.out.println(result);*/
-	        File directory = new File("C://Users//akriti//Downloads//test.png");
-
+	        File directory = new File("C://Users//akriti//Downloads//circle.png");
+	        
+	        
 	        System.out.println("Classify using the shapeRecog classifier");
 	        ClassifyImagesOptions options = new ClassifyImagesOptions.Builder().images(directory)
 	            .classifierIds("circle").build();
 	        VisualClassification result = service.classify(options).execute();
+	        
+	        System.out.println(result.getImages().get(0).getClassifiers().get(0).getClasses().get(0).getName());
 	        System.out.println(result);
-	        //System.out.println(result.getClass());
 
 	        
 

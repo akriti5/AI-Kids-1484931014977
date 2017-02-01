@@ -37,6 +37,8 @@ prevY = 0,
 currY = 0,
 dot_flag = false;
 
+var canvasImg;
+
 var x = "green",
 y = 2;
 
@@ -116,8 +118,11 @@ document.getElementById("canvasimg").style.display = "inline";
 function func(){
 	
 	document.getElementById("btn").download="circle.png";
+	canvasImg=document.getElementById("btn").download+Math.floor((Math.random() * 10) + 1);
+	alert(canvasImg);
 	var dt=c.toDataURL();
 	this.href=dt;
+	servercall();
 }
 
 function findxy(res, e) {
@@ -157,3 +162,61 @@ this.href=dt;
 }
 
 document.getElementById("btn").addEventListener("click",download,false); 
+
+///ajax request
+
+function servercall(){
+	
+	var name='?name='+canvasImg;
+	alert('name');
+	xhrGet("VisualReg"+name, function(responseText){		
+	alert('responseText');
+	
+
+}, function(err){
+	console.log(err);
+});
+
+}
+
+
+//utilities
+function createXHR(){
+	if(typeof XMLHttpRequest != 'undefined'){
+		return new XMLHttpRequest();
+	}else{
+		try{
+			return new ActiveXObject('Msxml2.XMLHTTP');
+		}catch(e){
+			try{
+				return new ActiveXObject('Microsoft.XMLHTTP');
+			}catch(e){}
+		}
+	}
+	return null;
+}
+function xhrGet(url, callback, errback){
+	
+	var xhr = new createXHR();
+	xhr.open("GET", url, true);
+	xhr.onreadystatechange = function(){
+		
+		if(xhr.readyState == 4){
+			if(xhr.status == 200){
+				callback(xhr.responseText);
+			}else{
+				errback('service not available');
+			}
+		}
+	};
+	xhr.timeout = 3000;
+	xhr.ontimeout = errback;
+	xhr.send();
+}
+function parseJson(str){
+	return window.JSON ? JSON.parse(str) : eval('(' + str + ')');
+}
+function prettyJson(str){
+	// If browser does not have JSON utilities, just print the raw string value.
+	return window.JSON ? JSON.stringify(JSON.parse(str), null, '  ') : str;
+}
