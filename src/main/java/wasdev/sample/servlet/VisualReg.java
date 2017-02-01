@@ -78,4 +78,5 @@ public class VisualReg extends HttpServlet {
 		// TODO Auto-generated method stub
 	}
 
+	
 }
