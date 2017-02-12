@@ -1,5 +1,6 @@
 // index.js
 
+var responseVal;
 
 function myFunction() {
     var popup = document.getElementById("myPopup");
@@ -15,6 +16,7 @@ function addItem(){
 	
 	xhrGet("SimpleServlet"+name, function(responseText){
 		
+	responseVal=responseText;	
 	document.body.style.background = 'url(images/'+responseText+'.jpg)'
 	document.body.style.backgroundSize = "cover";
 	document.getElementById('div1').style.visibility = 'hidden';  
@@ -27,6 +29,12 @@ function addItem(){
 
 }
 
+
+
+function navigate(){
+	if (responseVal==team)
+		window.location.href = 'ShapesQuiz.html';
+}
 
 //utilities
 function createXHR(){

@@ -1,44 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="/styling/roundButton.css">
-<link rel="stylesheet" href="/styling/Modal.css">
-<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<title>Visual_Audio Test</title>
+<link rel="stylesheet" href="styling/roundButton.css">
+<style>
+
+{ margin: 0; padding: 0; }
+
+html { 
+        background: url('images/shapeQuiz.jpg') no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+}
+
+.mySlides {display:none;}
+</style>
 </head>
 
-<body background="/images/spider.jpg" >
+<body onload="init()" >
+        <canvas id="can" width="350" height="350" style="position:absolute;top:20%;left:40%;border:2px solid;display:none;"></canvas>
+        <input type="button" value="Clear" id="clr" size="30" onclick="erase()" style="position:absolute;margin-top:4%;left:41%;" >
+        <a id="btn"  download="testor.png" style="position:absolute;;margin-top:4%;right:38%;" onclick="func()">Done</a>    
+          
+           
+        <div id="div1" style="display:none;">
+		  <img class="mySlides" src="images/train.jpg" style="width:100%">
+		  <img class="mySlides" src="images/SecondTrain.jpg" style="width:100%">	
+		  <img class="mySlides" src="images/ThirdTrain.jpg" style="width:100%"> 
+		</div>
+		<div id="div2" style="position:absolute;margin-top:35%;margin-left:43%">		
+		<input id="round" type="button" value="Quiz!" onclick="qzShow()"/>
+		</div>
+		
+		<div id="div3">
+		<audio id="play" src="images/shapeQuizSound.mp3" ></audio>
+		</div>
+    
 
-<div id="div1" style="margin-top:32%">
-<input id="round" type="button" value="Quiz!"/>
-</div>
+		<div id="div4" > 
+ 	 	<a class="w3-btn-floating w3-display-right" onclick="testingVR()" >&#10095;</a>
+		</div>
 
-<div id="myModal" class="modal">
+<script type="text/javascript" src="jsFiles/marvelSpider.js"></script>
 
-  <!-- Modal content -->
-  <div class="modal-content">
-    <div class="modal-header">
-      <span class="close">&times;</span>
-      <h2>Draw Circle</h2>
-    </div>
-    <div class="modal-body">
-     
-       <canvas id="can" width="350px" height="250px;" style="position:absolute;top:28%;left:12%;border:2px solid;"></canvas>
-        
-       
-        <input type="button" value="Clear" id="clr" size="30" onclick="erase()" style="position:absolute;margin-top:1%;right:12%;" >
-        <a id="btn"  download="testor.png" style="position:absolute;margin-top:64%;right:12%;" onclick="func()">Done</a>     
-       
-    </div> 
-   
-  </div>
-
-</div>
-
-<div id="div2" > 
- 	 <a class="w3-btn-floating w3-display-right" onclick="servercall()">&#10095;</a>
-	</div>
-
-<script type="text/javascript" src="/jsFiles/marvelSpider.js"></script>
 
 
 </body>

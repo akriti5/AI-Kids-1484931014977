@@ -1,8 +1,8 @@
 @CHARSET "ISO-8859-1";
 
 input#round{
-width:65px; /*same as the height*/
-height:60px; /*same as the width*/
+width:100px; /*same as the height*/
+height:101px; /*same as the width*/
 background-color:#ff0000;
 border:1px solid #ff0000; /*same colour as the background*/
 color:#fff;

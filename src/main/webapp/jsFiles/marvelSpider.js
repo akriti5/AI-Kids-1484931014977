@@ -1,33 +1,4 @@
-/**
- * 
- */
 
-// Get the modal
-var modal = document.getElementById('myModal');
-
-// Get the button that opens the modal
-var btn = document.getElementById("round");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-    modal.style.display = "block";
-    init();
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
 
 
 var canvas, ctx, flag = false,
@@ -42,24 +13,46 @@ var canvasImg;
 var x = "green",
 y = 2;
 
-function init() {
-canvas = document.getElementById('can');
-ctx = canvas.getContext("2d");
-w = canvas.width;
-h = canvas.height;
+function qzShow(){
+	 document.getElementById("div1").style.display = 'block';
+	 document.getElementById("can").style.display = 'block';
+	 document.getElementById("div2").style.display = 'none';
+	 document.getElementById('play').play();
+}
 
-canvas.addEventListener("mousemove", function (e) {
-    findxy('move', e)
-}, false);
-canvas.addEventListener("mousedown", function (e) {
-    findxy('down', e)
-}, false);
-canvas.addEventListener("mouseup", function (e) {
-    findxy('up', e)
-}, false);
-canvas.addEventListener("mouseout", function (e) {
-    findxy('out', e)
-}, false);
+
+function init() {
+	carousel();
+	canvas = document.getElementById('can');
+	ctx = canvas.getContext("2d");
+	w = canvas.width;
+	h = canvas.height;
+	
+	canvas.addEventListener("mousemove", function (e) {
+	    findxy('move', e)
+	}, false);
+	canvas.addEventListener("mousedown", function (e) {
+	    findxy('down', e)
+	}, false);
+	canvas.addEventListener("mouseup", function (e) {
+	    findxy('up', e)
+	}, false);
+	canvas.addEventListener("mouseout", function (e) {
+	    findxy('out', e)
+	}, false);
+}
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    //alert('yes');
+    setTimeout(carousel,500); // Change image every 2 seconds
 }
 
 function color(obj) {
@@ -165,7 +158,7 @@ document.getElementById("btn").addEventListener("click",download,false);
 
 ///ajax request
 
-function servercall(){
+function testingVR(){
 	alert('inside servercall')
 	var name='?name='+canvasImg;
 	alert(name);
@@ -220,3 +213,4 @@ function prettyJson(str){
 	// If browser does not have JSON utilities, just print the raw string value.
 	return window.JSON ? JSON.stringify(JSON.parse(str), null, '  ') : str;
 }
+
