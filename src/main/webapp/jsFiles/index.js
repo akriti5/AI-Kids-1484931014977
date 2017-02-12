@@ -3,7 +3,8 @@
 var responseVal;
 
 function myFunction() {
-    var popup = document.getElementById("myPopup");
+	
+    var popup = document.getElementById("myPopup");    
     popup.classList.toggle("show");
    document.getElementById("div3").style.display = 'block';
 }
@@ -20,8 +21,10 @@ function addItem(){
 	document.body.style.background = 'url(images/'+responseText+'.jpg)'
 	document.body.style.backgroundSize = "cover";
 	document.getElementById('div1').style.visibility = 'hidden';  
-	document.getElementById('div1').style.display = 'none';      
+	document.getElementById('div1').style.display = 'none'; 
+	document.getElementById("div2").innerHTML="Help us "+document.getElementById('name').value+" !";
 	 document.getElementById("div2").style.display = 'block';
+	 
 
 }, function(err){
 	console.log(err);
@@ -32,8 +35,10 @@ function addItem(){
 
 
 function navigate(){
-	if (responseVal==team)
+	if (responseVal=='team')
 		window.location.href = 'ShapesQuiz.html';
+	else 
+		window.location.href = 'ShapeQuiz.html';
 }
 
 //utilities

@@ -35,12 +35,17 @@ public class VSRecognition {
 
 	    VisualClassification result = service.classify(classifyOptions).execute();
 	    System.out.println(result);*/
-	        File directory = new File("C://Users//akriti//Downloads//circle.png");
+	        
+	        VisualClassifier visual= service.getClassifier("Shapes_1907709014").execute();
+	        
+	        
+	        
+	        File directory = new File("C://Users//akriti//Downloads//circle5.png");
 	        
 	        
 	        System.out.println("Classify using the shapeRecog classifier");
 	        ClassifyImagesOptions options = new ClassifyImagesOptions.Builder().images(directory)
-	            .classifierIds("circle").build();
+	            .classifierIds(visual.getId()).build();
 	        VisualClassification result = service.classify(options).execute();
 	        
 	        System.out.println(result.getImages().get(0).getClassifiers().get(0).getClasses().get(0).getName());
