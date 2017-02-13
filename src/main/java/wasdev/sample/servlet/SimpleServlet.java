@@ -26,7 +26,7 @@ import com.ibm.watson.developer_cloud.visual_recognition.v3.model.VisualClassifi
 public class SimpleServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private  NaturalLanguageClassifier service = new NaturalLanguageClassifier();
-    
+    private MySqlAccess sqlDao=new MySqlAccess();
     
     
    
@@ -40,11 +40,10 @@ public class SimpleServlet extends HttpServlet {
     	String name = request.getParameter("name");
     	String imgCls="";
     	System.out.println(name);
-    	response.setContentType("text/html");
-       
-        
-              
-       
+    	LoginNameToken.getInstance().setName(name);
+    	
+    	response.setContentType("text/html");   
+                     
         service.setUsernameAndPassword("e6f169f2-a91a-4744-bf09-4705c00bcdc4", "YA5EZAAXH65s");
 
         Classification classification = service.classify("cede31x166-nlc-79", name).execute();
@@ -52,6 +51,13 @@ public class SimpleServlet extends HttpServlet {
         	imgCls="team";
         else
         	imgCls="princess";
+        
+        try {
+			sqlDao.enterLoginData(name,classification.getTopClass());
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
         
         response.getWriter().print(imgCls);
         
