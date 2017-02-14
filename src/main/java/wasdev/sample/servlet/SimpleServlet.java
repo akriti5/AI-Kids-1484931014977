@@ -48,9 +48,9 @@ public class SimpleServlet extends HttpServlet {
 
         Classification classification = service.classify("cede31x166-nlc-79", name).execute();
         if(classification.getTopClass().equalsIgnoreCase("Boy"))
-        	imgCls="team";
+        	imgCls="marvel";
         else
-        	imgCls="princess";
+        	imgCls="party";
         
         try {
 			sqlDao.enterLoginData(name,classification.getTopClass());

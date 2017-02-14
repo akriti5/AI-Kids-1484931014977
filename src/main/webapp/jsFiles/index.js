@@ -23,6 +23,8 @@ function addItem(){
 	document.getElementById('div1').style.visibility = 'hidden';  
 	document.getElementById('div1').style.display = 'none'; 
 	document.getElementById("div2").innerHTML="Help us "+document.getElementById('name').value+" !";
+	if(responseText=="party")
+	document.getElementById("myPopup").innerHTML="While making the dollhouse we forget homework. Solve it for us princess";
 	 document.getElementById("div2").style.display = 'block';
 	 
 
@@ -35,7 +37,7 @@ function addItem(){
 
 
 function navigate(){
-	if (responseVal=='team')
+	if (responseVal=='marvel')
 		window.location.href = 'ShapesQuiz.html';
 	else 
 		window.location.href = 'ShapeQuiz.html';
